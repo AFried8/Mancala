@@ -13,7 +13,11 @@ public class Board{
 	}
 	
 	public boolean pebblesAvailable(int playerNumber, int pit) {
-		if(rows[playerNumber].getPitPebbles(pit-1) < 1) {
+		if(playerNumber ==1) {
+			convertPitNumber(pit-1);  //This converter works with indices not pit numbers on the board so do pit-1
+			pit++; 					  //because decrements pit to get the index not the pit number in next line of code
+		}
+		if(rows[playerNumber].getPitPebbles(pit-1) <1) {
 			return false;
 		}
 		return true;
